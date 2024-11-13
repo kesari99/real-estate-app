@@ -22,7 +22,9 @@ export default function Profile() {
   const [fileUpError, setFileUpError] = useState(false)
   const [formData, setFormData] = useState({})
   const [updateSuccess, setUpdateSuccess] = useState(false)
-  console.log(formData)
+  const [showListingError, setShowListingError] = useState(false)
+  const [listings, setLisings] = useState([])
+  console.log(listings)
 
 
   const fileRef = useRef(null)
@@ -159,6 +161,25 @@ export default function Profile() {
 
   }
 
+  const handleShowListing = async () => {
+    try{
+      setShowListingError(false)
+      const res = await fetch(`api/user/listings/${currentUser._id}`)
+      const data = await res.json()
+      if(data.success == false){
+        setShowListingError(true)
+        return;
+      }
+      setLisings(data)
+
+
+    }catch(error){
+      setShowListingError(true)
+    }
+
+
+  }
+
   
 
 
@@ -233,7 +254,68 @@ export default function Profile() {
       </div>
       <p className="text-red-700 mt-5">{error ? error : ''}</p>
       <p className="text-green-700">{updateSuccess ? 'User is updated successfully' : ''}</p>
-    
+      
+      <button
+         className="text-green-700 w-full text-center"
+         onClick={handleShowListing}
+      >Show Listing</button>
+
+      <p className="text-red-700">{showListingError ? 'Error showing Listings' : ''}</p>
+
+      
+
+
+        { listings && listings.length > 0 &&
+
+        <div className="flex flex-col gap-4">
+
+          <h1 className="text-center text-2xl mt-7 font-semibold" >Your Listing</h1>
+        
+        
+        {listings.map((eachList) => (
+          <div key={eachList._id} className="w-full gap-4 p-4" >
+           
+          
+            {eachList.imageUrls.length > 0 &&  <div className=" border rounded-lg flex justify-between p-3 gap-4 items-center ">
+              <Link to={`listing/${eachList._id}`}>
+            <img 
+              src={eachList.imageUrls[0]} 
+              alt="listing-image"  
+              className="h-16 w-16 object-contain "
+            />
+            </Link>
+
+            <Link className="text-slate-700 font-semibold flex-1 hover:underline truncate ">
+            <p> {eachList.name}</p>
+            </Link>
+
+            <div className="flex flex-col">
+              <button className="text-red-700 uppercase"> DELETE</button>
+              <button className="text-green-700 uppercase"> edit</button>
+
+
+
+            </div>
+
+
+
+            
+            </div>}
+           
+          
+           
+          </div>
+
+        ))}
+
+       </div>
+        
+        
+        }
+
+
+      
+
     </div>
   )
 }

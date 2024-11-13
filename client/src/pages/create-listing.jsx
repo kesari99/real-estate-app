@@ -24,6 +24,7 @@ const CreateListing = () => {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
 
+
     const navigate = useNavigate()
 
     const listingValues = {

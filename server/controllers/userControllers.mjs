@@ -1,5 +1,6 @@
 import bcryptjs from 'bcryptjs'
 import User from "../models/user_models.mjs"
+import Listing from '../models/listing_model.mjs'
 import { errorHandler } from '../utils/error.mjs'
 
 export const testRoute  = (req, res) => {
@@ -47,4 +48,20 @@ export const deleteUser = async (req, res, next) => {
         next(err)
     }
 
+}
+
+export const getUserListings = async (req, res, next) => {
+     if(req.user.id === req.params.id) {
+
+        try{
+            const user = await Listing.find({userRef:req.params.id})
+            res.status(200).json(user)
+
+        }catch(error){
+            next(error)
+        }
+
+     }else{
+        return next(errorHandler(401, 'You can only view your own listings'))
+     }
 }
