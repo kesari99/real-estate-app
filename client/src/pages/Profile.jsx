@@ -180,6 +180,35 @@ export default function Profile() {
 
   }
 
+  const handleDeleteList = async (id) => {
+
+    try{
+      const res = await fetch(`/api/listing/delete/${id}`, {
+        method:'DELETE',
+       
+      })
+
+      const data = await res.json()
+
+      if (data.success === false){
+        console.log(data.message)
+        return
+      }
+
+      setLisings((prev) => prev.filter((eachList) => eachList._id !== id))
+
+      
+
+    }catch(error){
+
+      console.log(error)
+
+    }
+
+
+
+  }
+
   
 
 
@@ -285,13 +314,16 @@ export default function Profile() {
             />
             </Link>
 
-            <Link className="text-slate-700 font-semibold flex-1 hover:underline truncate ">
+            <Link to={`/listing/${eachList._id}`} className="text-slate-700 font-semibold flex-1 hover:underline truncate ">
             <p> {eachList.name}</p>
             </Link>
 
             <div className="flex flex-col">
-              <button className="text-red-700 uppercase"> DELETE</button>
+              <button onClick={() => handleDeleteList(eachList._id)} className="text-red-700 uppercase"> DELETE</button>
+              
+              <Link to={`/update-listing/${eachList._id}`}>
               <button className="text-green-700 uppercase"> edit</button>
+              </Link>
 
 
 
