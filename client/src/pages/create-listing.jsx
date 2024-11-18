@@ -30,8 +30,7 @@ const CreateListing = () => {
     const listingValues = {
         name:'',
         description:'',
-        address:''   ,
-        
+        address:'',
         type:'rent',
         furnished:false,
         offer:false,
