@@ -4,7 +4,7 @@ import { MdLocationOn } from 'react-icons/md';
 
 const ListingItem = ({listing}) => {
   return (
-    <div>
+    <div className='bg-white shadow-md rounded-lg'>
         <Link to={`/listing/${listing._id}`} >
         <img
           src={

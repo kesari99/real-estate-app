@@ -273,7 +273,7 @@ const onShowMoreClick = async () => {
             </div>
 
             <div className='flex-1'>
-                <h1  className="text-3xl font-semibold border-b text-slate-700 mt-5">Lisintg Page</h1>
+                <h1  className="text-3xl font-semibold p-3 border-b text-slate-700 mt-5">Lisintg Page</h1>
                 <div className='p-7 grid sm:grid-cols-3 gap-4'>
                     {!loading && listings.length === 0 && (
                         <p className='text-xl text-slate-700 text-center w-full '>No listing Found</p>
