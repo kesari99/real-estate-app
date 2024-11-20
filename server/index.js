@@ -18,10 +18,23 @@ const port = process.env.PORT || 5001
 const app = express()
 app.use(express.json())
 app.use(cookieParser())
-app.use(cors({ 
-    origin:'https://kesari-real-estate-app-frontend.onrender.com',
+
+const allowedOrigins = [
+    'http://localhost:5173', 
+    'https://kesari-real-estate-app-frontend.onrender.com'
+  ];
+
+app.use(cors({
+    origin: (origin, callback) => {
+      // Allow requests with no origin (like mobile apps or Postman)
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
     credentials: true
-}));
+  }));
 
 
 app.use('/api/user',userRoutes )
