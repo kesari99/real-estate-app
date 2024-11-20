@@ -6,7 +6,11 @@ import authRoute from './routes/authRoute.mjs'
 import listingRoute from './routes/listing-route.mjs'
 import cookieParser from 'cookie-parser'
 import cors from 'cors'
+import path from 'path';
 dotenv.config()
+
+
+const __dirname = path.resolve();
 
 connectToDb()
 const port = process.env.PORT || 5001
@@ -36,6 +40,12 @@ app.use((err, req, res, next) => {
 
     })
 })
+
+app.use(express.static(path.join(__dirname, 'frontend', 'build')));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'));
+});
 
 
 
