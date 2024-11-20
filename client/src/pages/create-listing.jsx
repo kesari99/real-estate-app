@@ -9,7 +9,8 @@ import {useNavigate} from 'react-router-dom'
 
 
 const api = axios.create({
-    baseURL : 'http://localhost:5001/api/listing',
+    // baseURL : 'http://localhost:5001/api/listing',
+    baseURL : 'https://kesari-real-estate-app.onrender.com/api/listing',
     withCredentials:true
 })
 
