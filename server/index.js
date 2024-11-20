@@ -19,7 +19,7 @@ const app = express()
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({ 
-    origin: 'http://localhost:5173' || 'https://kesari-real-estate-app-frontend.onrender.com',
+    origin:'https://kesari-real-estate-app-frontend.onrender.com',
     credentials: true
 }));
 
