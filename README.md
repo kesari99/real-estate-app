@@ -6,7 +6,7 @@ A responsive and user-friendly platform for property listings, allowing users to
 
 ## 🎥 Demo Video
 
-[![Watch the demo](https://via.placeholder.com/800x450.png?text=Click+to+Watch+Demo)](https://gumlet.tv/watch/67404cdfb862f68cda166872/)
+[![Watch the demo](https://video.gumlet.io/67404c9279da703e9ae5b2ff/67404cdfb862f68cda166872/thumbnail-1-0.png?v=1732267327546)](https://gumlet.tv/watch/67404cdfb862f68cda166872/)
 
 Click the image above to watch a video demo of the application in action.
 
