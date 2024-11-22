@@ -4,6 +4,14 @@ A responsive and user-friendly platform for property listings, allowing users to
 
 ---
 
+## 🎥 Demo Video
+
+[![Watch the demo](https://via.placeholder.com/800x450.png?text=Click+to+Watch+Demo)](https://gumlet.tv/watch/67404cdfb862f68cda166872/)
+
+Click the image above to watch a video demo of the application in action.
+
+---
+
 ## 🛠 Features
 
 - **Responsive Design**: Optimized for all devices, ensuring a seamless experience across desktop, tablet, and mobile.
