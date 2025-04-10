@@ -9,7 +9,8 @@ import {useNavigate, useParams} from 'react-router-dom'
 
 
 const api = axios.create({
-    baseURL : 'http://localhost:5001/api/listing',
+    // baseURL : 'http://localhost:5001/api/listing',
+    baseURL : 'https://real-estate-app-a14s.onrender.com/api/listing',
     withCredentials:true
 })
 

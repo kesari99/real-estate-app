@@ -104,7 +104,7 @@ const handleSubmit = (e) => {
         const searchQuery = urlParams.toString()
 
 
-        const res = await fetch(`/api/listing/get?${searchQuery}`)
+        const res = await fetch(`https://real-estate-app-a14s.onrender.com/api/listing/get?${searchQuery}`)
         const data = await res.json()
         if(data.length > 8){
             setShowMore(true)
@@ -133,7 +133,7 @@ const onShowMoreClick = async () => {
     const urlParams = new URLSearchParams(location.search)
     urlParams.set('startIndex', startIndex)
     const searhcQuery = urlParams.toString()
-    const res = await fetch(`/api/listing/get?${searhcQuery}`)
+    const res = await fetch(`https://real-estate-app-a14s.onrender.com/api/listing/get?${searhcQuery}`)
     const data = await res.json()
 
     if(data.length < 9){

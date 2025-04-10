@@ -14,7 +14,7 @@ const Contact = ({listing }) => {
         const fetchLandLord = async () => {
 
             try{
-                const response = await fetch(`/api/user/${listing.userRef}`);
+                const response = await fetch(`https://real-estate-app-a14s.onrender.com/api/user/${listing.userRef}`);
                 const data = await response.json()
 
                 if(data.success === false){

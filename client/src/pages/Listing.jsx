@@ -39,7 +39,7 @@ const Listing = () => {
             setError(false);
 
             try {
-                const response = await fetch(`/api/listing/getlisting/${id}`);
+                const response = await fetch(`https://real-estate-app-a14s.onrender.com/api/listing/getlisting/${id}`);
                 const data = await response.json();
 
                 if (data.success === false) {

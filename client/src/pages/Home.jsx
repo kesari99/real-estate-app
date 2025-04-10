@@ -21,7 +21,7 @@ export default function Home() {
     const fetchOffferListing = async () => {
       try {
 
-        const res = await fetch('api/listing/get?offer=true&limit=4')
+        const res = await fetch('https://real-estate-app-a14s.onrender.com/api/listing/get?offer=true&limit=4')
         const data = await res.json()
         setOfferListings(data)
         fetchRentListing()
@@ -35,7 +35,7 @@ export default function Home() {
     const fetchRentListing = async () => {
       try {
 
-        const res = await fetch('api/listing/get?type=rent&limit=4')
+        const res = await fetch('https://real-estate-app-a14s.onrender.com/api/listing/get?type=rent&limit=4')
         const data = await res.json()
         setRentListings(data)
         fetchSaleListing()
@@ -49,7 +49,7 @@ export default function Home() {
     const fetchSaleListing = async () => {
       try {
 
-        const res = await fetch('api/listing/get?type=sale&limit=4')
+        const res = await fetch('https://real-estate-app-a14s.onrender.com/api/listing/get?type=sale&limit=4')
         const data = await res.json()
         setSaleListings(data)
 

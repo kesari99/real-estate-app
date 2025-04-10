@@ -8,7 +8,7 @@ export default defineConfig({
       '/api':{
         target:'http://localhost:5001',
         secure: false
-      }
+      } 
     }
   },
   plugins: [react()],
